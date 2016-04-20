@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div id='dashboard_div'>
+			<div id="dashboard_user_info">
+				<h2 class="lead"> Hi <%= @user.first_name %> </h2>
+				<h3 class="lead"> Upcoming Trip: Paris, France </h3>
+				<h3 class="lead"> Travel Dates: 20 Aug 2016 to 25 Aug 2016 </h3>
+				<h3 class="lead"> Travelling with a group <h3>
+				<input type="hidden" value= <%= @user.id %>>
+				<% if notice %>
+					<p class="lead"> <%= notice %> </p>
+				<% end %>
+			</div>
+			<div id="dashboard_buttons">
+				<form class="form-horizontal" action='/all_products'>
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input type="hidden" value= <%= @user.id %> >
+					<input class="btn btn-primary" type='submit' value='All Sprouts' />
+				</form>
+				<br>
+				<form class="form-horizontal" action='/new_product'>
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input class="btn btn-primary" type='submit' value='Create Sprout' />
+				</form>
+				<br>
+				<form class="form-horizontal" action='/logout'>
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input class="btn btn-primary" type='submit' value='Log Out' />
+				</form>
+			</div>
+		</div>
+		<div id='dashboard_div'>
+			<h1 class="jumbotron01">RSVP'd Sprouts</h1>
+			<table class="table table-hover">
+				<thead class="lead">
+					<th> Product (Date) </th>
+					<th> Description (Title) </th>
+					<th> Date Posted (Location) </th>
+					<th> Price (Number of Sprouts) </th>
+					<th> Delete (View Sprout) </th>
+				</thead>
+				<% if session[:status] == true %>
+					<% @sell_products.each do |get_data| %>
+						<tbody class="lead">
+							<td> <%= get_data.product_name %> </td>
+							<td> <%= get_data.product_description %> </td>
+							<td> <%= get_data.created_at %> </td>
+							<td> <%= get_data.product_price %> </td>
+							<td>
+								<form class="form-horizontal" action='/delete_product'>
+									<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+									<input name='id' type='hidden' value=<%= get_data.id %>>
+									<input class="btn btn-primary" type='submit' value='Delete' />
+								</form>
+							</td>
+						</tbody>
+					<% end %>
+				<% end %>
+			</table>
+		</div>
+		<div id='dashboard_div'>
+			<h1 class="jumbotron01">Bookmarked Sprouts</h1>
+			<table class="table table-hover">
+				<thead class="lead">
+					<th> Product (Date) </th>
+					<th> Description (Title) </th>
+					<th> Date Sold (Location) </th>
+					<th> Price (Number of Sprouts) </th>
+					<th> Buyer (View Sprout) </th>
+				</thead>
+				<% if session[:status] == true %>
+					<% @sold_products.each do |get_data| %>
+						<tbody class="lead">
+							<td> <%= get_data.product_name %> </td>
+							<td> <%= get_data.product_description %> </td>
+							<td> <%= get_data.updated_at %> </td>
+							<td> <%= get_data.product_price %> </td>
+							<td>
+								<form class="form-horizontal" action='/delete_product'>
+									<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+									<input name='id' type='hidden' value=<%= get_data.id %>>
+									<input class="btn btn-primary" type='submit' value='Delete' />
+								</form>
+							</td>
+						</tbody>
+					<% end %>
+				<% end %>
+			</table>
+		</div>
+		<div id='dashboard_div'>
+			<h1 class="jumbotron01">Past Sprouts</h1>
+			<table class="table table-hover">
+				<thead class="lead">
+					<th> Product (Date) </th>
+					<th> Description (Title) </th>
+					<th> Date Purchased (Location) </th>
+					<th> Price (Number of Sprouts) </th>
+					<th> Seller (View Sprout) </th>
+				</thead>
+				<% if session[:status] == true %>
+					<% @buy_products.each do |get_data| %>
+						<tbody class="lead">
+							<td> <%= get_data.product_name %> </td>
+							<td> <%= get_data.product_description %> </td>
+							<td> <%= get_data.updated_at %> </td>
+							<td> <%= get_data.product_price %> </td>
+							<td>
+								<form class="form-horizontal" action='/delete_product'>
+									<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+									<input name='id' type='hidden' value=<%= get_data.id %>>
+									<input class="btn btn-primary" type='submit' value='Delete' />
+								</form>
+							</td>
+						</tbody>
+					<% end %>
+				<% end %>
+			</table>
+		</div>
+	</body>
+</html>

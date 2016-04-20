@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div id='user_div'>
+			<h1 class="jumbotron01">Update User</h1>
+			<table class="table table-hover">
+				<thead class="lead">
+					<th> First Name </th>
+					<th> Last Name </th>
+					<th> Email </th>
+					<th> Password </th>
+					<th> Action </th>
+				</thead>
+				<tbody class="lead">
+					<td> <%= @user.first_name %> </td>
+					<td> <%= @user.last_name %> </td>
+					<td> <%= @user.email %> </td>
+					<td> <%= @user.password%> </td>
+					<td>
+						<form class="form-horizontal" action='/update_user' method='post'>
+							<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+							<input name='id' type='hidden' value=<% session[:user_info].id %>>
+							<input class="btn btn-primary" type='submit' value='Update' />
+						</form>
+					</td>
+				</tbody>
+			</table>
+			<br>
+			<form class="form-horizontal" action='/all_products'>
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input class="btn btn-primary" type='submit' value='Back' />
+			</form>
+		</div>
+	</body>
+</html>

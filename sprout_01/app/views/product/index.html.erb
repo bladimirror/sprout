@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div id='product_div'>
+			<h1 class="jumbotron01"> All Products </h1>
+			<form class="form-horizontal" action='/user_dashboard'>
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input class="btn btn-primary" type='submit' value='Dashboard' />
+			</form>
+			<br>
+			<form class="form-horizontal" action='/'>
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input class="btn btn-primary" type='submit' value='Log Out' />
+			</form>
+			<table class="table table-hover">
+				<thead class="lead">
+					<th> Product </th>
+					<th> Description </th>
+					<th> Seller </th>
+					<th> Date Posted </th>
+					<th> Price </th>
+					<th> Action </th>
+				</thead>
+				<% @products.each do |get_data| %>
+					<tbody class="lead">
+						<td> <%= get_data.product_name %> </td>
+						<td> <%= get_data.product_description %> </td>
+						<td> <%= get_data.sellerIDnumber %> </td>
+						<td> <%= get_data.created_at %> </td>
+						<td> <%= get_data.product_price %> </td>
+						<td>
+							<form class="form-horizontal" action='/buy_product'>
+								<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+								<input name='id' type='hidden' value=<%= get_data.id %>>
+								<input class="btn btn-primary" type='submit' value='Buy' />
+							</form>
+						</td>
+					</tbody>
+				<% end %>
+			</table>
+		</div>
+	</body>
+</html>

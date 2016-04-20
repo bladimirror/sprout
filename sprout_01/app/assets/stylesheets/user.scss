@@ -1,0 +1,75 @@
+// Place all the styles related to the User controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//REGISTRATION AND LOGIN DIV'S
+#user_div {
+	width: 40%;
+	height: auto;
+	margin: 10px 60px 0px 60px;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	overflow: auto;
+
+	padding: 4px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: border .2s ease-in-out;
+	   -o-transition: border .2s ease-in-out;
+	      transition: border .2s ease-in-out;
+}
+
+//ERROR REGISTRATION AND LOGIN DIV'S
+#error_div {
+	width: 100%;
+	height: auto;
+	margin: 10px 0px 10px 0px;
+	text-align: middle;
+	color: red;
+	vertical-align: middle;
+	display: block;
+	overflow: auto;
+
+	padding: 10px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: border .2s ease-in-out;
+	   -o-transition: border .2s ease-in-out;
+	      transition: border .2s ease-in-out;
+}
+
+//DASHBOARD DIV'S
+#dashboard_div {
+	width: 90%;
+	height: auto;
+	margin: 10px 60px 0px 60px;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	overflow: auto;
+
+	padding: 4px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: border .2s ease-in-out;
+	   -o-transition: border .2s ease-in-out;
+	      transition: border .2s ease-in-out;
+}
+
+//CONTROLS HEADER FORMATTING
+.jumbotron01 {
+  color: inherit;
+}
+.jumbotron01 h1,
+.jumbotron01 .h1 {
+  color: inherit;
+  font-size: 63px;
+}
+
