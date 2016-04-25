@@ -1,0 +1,91 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*  {
+	margin: 0em;
+	padding: 0em;
+}
+
+#container {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	overflow: auto;
+}
+
+	.g-signout {
+		width: 7.5em;
+		height: 2.250em;
+		
+
+		-webkit-border-radius: 1px;
+		border-radius: 1px;
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+		transition: background-color .218s,border-color .218s,box-shadow .218s;
+		-webkit-user-select: none;
+		-webkit-appearance: none;
+		background-color: #fff;
+		background-image: none;
+		color: #262626;
+		cursor: pointer;
+		outline: none;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+
+	// HOVER IS NOT WORKING
+	.g-signout:hover {
+		border-color: purple;
+		color: #757575;
+	}
+
+	.nav-align-left {
+		float: right;
+	}
+
+	#locationField, #controls {
+		position: relative;
+		width: 480px;
+	  }
+	#autocomplete {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 99%;
+	}
+	.label {
+		text-align: right;
+		font-weight: bold;
+		width: 100px;
+		color: #303030;
+	}
+	#address {
+		border: 1px solid #000090;
+		background-color: #f0f0ff;
+		width: 480px;
+		padding-right: 2px;
+	}
+	#address td {
+		font-size: 10pt;
+	}
+	.field {
+		width: 99%;
+	}
+	.slimField {
+		width: 80px;
+	}
+	.wideField {
+		width: 200px;
+	}
+	#locationField {
+		height: 20px;
+		margin-bottom: 2px;
+	}
+
