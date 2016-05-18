@@ -1,7 +1,7 @@
 class TravelController < ApplicationController
 	def create
-	flash[:notice] = "Item successfully added"
-	redirect "/"
+		flash[:notice] = "Item successfully added"
+		redirect "/"
 	end
 
 	def read

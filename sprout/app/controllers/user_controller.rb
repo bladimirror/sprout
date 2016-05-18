@@ -4,8 +4,8 @@ class UserController < ApplicationController
 	end
 
 	def create
-	flash[:notice] = "Item successfully added"
-	redirect "/"
+		flash[:notice] = "Item successfully added"
+		redirect_to "/"
 	end
 
 	def read
