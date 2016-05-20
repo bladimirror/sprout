@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   #USER ROUTES
   get "/" => 'user#index'
+  get "/user_dashboard" => 'user#user_dashboard'
 
   #EVENT ROUTES
   get "/event_search", :to => redirect('/event_search.html')

@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 	def index
-		render "login"
+		render "index"
 	end
 
 	def create
@@ -15,5 +15,9 @@ class UserController < ApplicationController
 	end
 
 	def destroy
+	end
+
+	def user_dashboard
+		render "user_dashboard"
 	end
 end
