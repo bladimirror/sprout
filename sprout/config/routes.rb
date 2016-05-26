@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get "/user_dashboard" => 'user#user_dashboard'
 
   #EVENT ROUTES
-  get "/event_search", :to => redirect('/event_search.html')
-  get "/create_event" => 'event#to_create_event'
+  get "/event_search" => 'event#event_list'
+  get "/create_event" => 'event#create_event_form'
   post "/add_event_db" => 'event#create'
+  get "/view_event" => 'event#view_event'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,7 +8,7 @@
 		 <!--CSS-->
 		<!--STYLESHEET CSS-->
 		<link rel="stylesheet" href="/assets/user.scss.css">
-		<!--GOOGLE MAP JS AUTOFILL CSS-->
+		<!--GOOGLE FONTS CSS-->
 		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 
 
@@ -232,20 +232,25 @@
 			<div id="header">
 				<ul class="nav nav-pills nav-align-left">
 					<li>
-						<!--FACEBOOK SIGN-IN BUTTON-->
+						<!--FACEBOOK SIGN-IN BUTTON
 						<fb:login-button scope="public_profile,email,user_location,user_about_me,user_hometown " onClick="checkLoginState()" data-size="xlarge", data-auto-logout-link="true">
 						</fb:login-button>
 						<div id="fb-root"></div>
 					</li>
-					<li>
-						<!--GMAIL SIGN-IN BUTTON-->
+					<li>-->
+						<!--GMAIL SIGN-IN BUTTON
 						<div class="g-signin2" data-onsuccess="onSignIn"></div>
-					</li>
+					</li>-->
 				</ul>
 
-				<form class="form-horizontal" action='/user_dashboard'>
+				<form class="form-horizontal" action='/event_search'>
 					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-					<input class="btn btn-primary" type='submit' value='Dashboard' />
+					<input class="btn btn-primary" type='submit' value='Find Event' />
+				</form>
+
+				<form class="form-horizontal" action='/create_event'>
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input class="btn btn-primary" type='submit' value='Create Event' />
 				</form>
 			</div>
 

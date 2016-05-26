@@ -8,7 +8,7 @@ class EventController < ApplicationController
 		puts "Validating form data..."
 		@event = Event.new(title: params[:event_title], description: params[:event_description], location: params[:event_location], start_date: params[:event_start_date], start_time: params[:event_start_time], end_date: params[:event_end_date], end_time: params[:event_end_time])
     	
-    	puts "Adding new user to database..."
+    	puts "Adding new event to database..."
     	@event = Event.create(title: params[:event_title], description: params[:event_description], location: params[:event_location], start_date: params[:event_start_date], start_time: params[:event_start_time], end_date: params[:event_end_date], end_time: params[:event_end_time])
     	
 		puts "Redirecting from EVENT#CREATE method to USER#INDEX method..."
@@ -26,7 +26,18 @@ class EventController < ApplicationController
 	end
 
 	#ROUTING FUNCTIONS
-	def to_create_event
+	def event_list
+		puts "Pulling event information from database..."
+		@event = Event.order(start_date: :asc)
+		render "event_search"
+	end
+	def create_event_form
 		render "create_event"
+	end
+
+	def view_event
+		puts "Loading event page..."
+		@event = Event.find(params[:id])
+		render "event_page"
 	end
 end

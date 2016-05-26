@@ -1,1 +1,71 @@
-<h1> EVENT SEARCH </h1>
+<!DOCTYPE html>
+<html lang="en" media="screen">
+	<head>
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <title> Sprout: Events </title>
+
+		 <!--CSS-->
+		<!--STYLESHEET CSS-->
+		<link rel="stylesheet" href="/assets/user.scss.css">
+		<!--GOOGLE FONTS CSS-->
+		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+
+
+		<!--CSS BOOTSTRAP-->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!--CSS W3 SCHOOLS-->
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		<!--GOOGLE FONTS-->
+		<link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+
+		<!--API KEYS-->
+		<!--JQUERY LIBRARY CALL-->
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	</head>
+
+
+	<body>
+		<div class="w3-card-12 w3-green w3-hover-shadow w3-center">
+			<h1 class="google-font"> Sprout Events </h1>
+			<form class="form-horizontal" action='/user_dashboard'>
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input class="btn btn-primary" type='submit' value='Dashboard' />
+			</form>
+			<br>
+			<form class="form-horizontal" action='/'>
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input class="btn btn-primary" type='submit' value='Index Page' />
+			</form>
+			<table class="table table-hover">
+				<thead class="google-font">
+					<th> Title </th>
+					<th> Description </th>
+					<th> Location </th>
+					<th> Event Start Time</th>
+					<th> Event End Time </th>
+				</thead>
+				<% @event.each do |get_data| %>
+					<tbody class="google-font">
+						<td> <%= get_data.title %> </td>
+						<td> <%= get_data.description %> </td>
+						<td> <%= get_data.location %> </td>
+						<td> <%= get_data.start_date %> <p> at </p> <%= get_data.start_time %> </td>
+						<td> <%= get_data.end_date %> <p> at </p> <%= get_data.end_time %> </td>
+						<td>
+							<form class="form-horizontal" action='/view_event'>
+								<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+								<input name='id' type='hidden' value=<%= get_data.id %>>
+								<input class="btn btn-primary" type='submit' value='View Event' />
+							</form>
+						</td>
+					</tbody>
+				<% end %>
+			</table>
+		</div>
+	</body>
+</html>
